@@ -1,0 +1,17 @@
+.order {
+    height: 200px;
+    overflow: auto;
+    background-color: #f7f7f7
+}
+
+::-webkit-scrollbar {
+    width: .4rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #d7dbd6;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bec0bd;
+}

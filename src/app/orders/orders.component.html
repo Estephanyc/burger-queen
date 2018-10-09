@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="col-md-3 col-4 mb-3 " *ngFor=" let item of orders | async ">
-        <div class="shadow-sm p-2 bg-white order ">
-            <h3>{{item.data.cliente}} </h3>
+    <div class="col-md-4 mb-3 " *ngFor=" let item of orders | async ">
+        <div class="shadow-sm p-2 order ">
+            <h4>{{item.data.cliente}} </h4>
             <p *ngFor="let item of item.data.pedido ">
-                {{item.value}}
+                - {{item.value}}
             </p>
         </div>
     </div>
