@@ -1,0 +1,28 @@
+<div class="row bg-white">
+    <div class="col-6 mt-4 mx-auto">
+        <mat-tab-group>
+            <mat-tab label="Desayunos">
+                <app-option-menu *ngFor="let option of desayunos" [item]="option" (valueChange)='addItem($event)'></app-option-menu>
+            </mat-tab>
+            <mat-tab label="almuerzos">
+                <app-option-menu *ngFor="let option of almuerzos" [item]="option" (valueChange)='addItem($event)'></app-option-menu>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    <div class="orders col-6 pt-4 ">
+        <div *ngFor="let item of pedidos" class="row  pt-3">
+            <div class="col-5">
+                <span>{{item.value}}</span>
+            </div>
+            <div class="col-5">
+                <span>S/. {{item.precio}}</span>
+            </div>
+            <div class="col-2">
+                <i class="fas fa-trash-alt" (click)="deleteItem(item.pedidoId, item.precio)"></i>
+            </div>
+        </div>
+        <p class="p-3 mt-1 bg-light">Total S/.{{total}}</p>
+        <button type="button" class="btn btn-danger" *ngIf="total !== 0" (click)="addOrder()">Enviar a cocina</button>
+
+    </div>
+</div>

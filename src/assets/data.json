@@ -1,0 +1,49 @@
+[{
+        "Desayuno": {
+            "option1": {
+                "value": "Cafe Americano",
+                "precio": 5
+            },
+            "option2": {
+                "value": "Cafe con leche",
+                "precio": 7
+            },
+            "option3": {
+                "value": "Sandwich de jamón y queso",
+                "precio": 10
+            },
+            "option4": {
+                "value": "Jugo natural",
+                "precio": 7
+            }
+        }
+    },
+    {
+        "Almuerzo": {
+            "option1": {
+                "value": "Simple",
+                "precio": 10
+            },
+            "option2": {
+                "value": "Doble",
+                "precio": 15
+            },
+            "option3": {
+                "value": "Papas fritas",
+                "precio": 5
+            },
+            "option4": {
+                "value": "Onion Rings",
+                "precio": 5
+            },
+            "option5": {
+                "value": "Agua 500ml",
+                "precio": 8
+            },
+            "option6": {
+                "value": "Agua 700ml",
+                "precio": 8
+            }
+        }
+    }
+]
