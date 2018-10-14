@@ -22,6 +22,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { PendingOrdersComponent } from './pending-orders/pending-orders.component';
 import { LoginComponent } from './login/login.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const appRoutes: Routes = [ // ruta + componente
   {
@@ -69,7 +70,8 @@ const appRoutes: Routes = [ // ruta + componente
     AngularFireStorageModule ,
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
