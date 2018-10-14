@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  user: any = null;
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [
       Validators.required,
@@ -22,22 +21,18 @@ export class LoginComponent implements OnInit {
     ]),
   });
 
-  constructor(private router: Router,private firebaseAuth: AngularFireAuth, public snackBar: MatSnackBar) { }
+  constructor(private router: Router,private AuthService: AuthService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.firebaseAuth.authState.subscribe((auth) => {
-      this.user = auth;
-      console.log(this.user)
-    });
+   
   }
   signup() {
-    this.firebaseAuth.auth
-      .createUserWithEmailAndPassword(this.loginForm.value.email, this.loginForm.value.password)
+    this.AuthService.signup(this.loginForm.value.email, this.loginForm.value.password)
       .then(()=>{
          console.log('exitoso')
-        this.router.navigate(['TakeOrder']);
-      }).catch(()=>{
-        this.snackBar.open('Error de registro, trata otra vez'
+        this.router.navigate(['Home']);
+      }).catch((err)=>{
+        this.snackBar.open('Error' + err
           , null/*No necesitamos botón en el aviso*/
           , {
             duration: 3000
@@ -47,13 +42,12 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.firebaseAuth.auth
-      .signInWithEmailAndPassword(this.loginForm.value.email, this.loginForm.value.password)
+    this.AuthService.login(this.loginForm.value.email, this.loginForm.value.password)
       .then(() => {
       console.log('exitoso')
-        this.router.navigate(['TakeOrder']);
-    }).catch(() => {
-      this.snackBar.open('Error de registro, trata otra vez'
+        this.router.navigate(['home']);
+    }).catch((err) => {
+      this.snackBar.open('Error' + err
         , null/*No necesitamos botón en el aviso*/
         , {
           duration: 3000
@@ -61,10 +55,4 @@ export class LoginComponent implements OnInit {
     })
     this.loginForm.reset()
   }
-
-  logout() {
-    this.firebaseAuth.auth.signOut()
-    this.router.navigate(['login']);
-  }
-
 }

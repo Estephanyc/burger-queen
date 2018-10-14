@@ -23,6 +23,8 @@ import { environment } from '../environments/environment';
 import { PendingOrdersComponent } from './pending-orders/pending-orders.component';
 import { LoginComponent } from './login/login.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeaderComponent } from './header/header.component';
 
 const appRoutes: Routes = [ // ruta + componente
   {
@@ -30,15 +32,19 @@ const appRoutes: Routes = [ // ruta + componente
     component: LoginComponent
   },
   {
-    path: 'TakeOrder',
+    path: 'home/takeOrder',
     component: MenuComponent
   },
   {
-    path: 'orders',
+    path: 'home',
+    component: DashboardComponent
+  },
+  {
+    path: 'home/orders',
     component: OrdersComponent
   },
   {
-    path: 'pending-orders',
+    path: 'home/pending-orders',
     component: PendingOrdersComponent
   },
   {
@@ -54,7 +60,9 @@ const appRoutes: Routes = [ // ruta + componente
     OptionMenuComponent,
     OrdersComponent,
     PendingOrdersComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
