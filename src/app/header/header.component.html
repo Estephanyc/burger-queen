@@ -1,16 +1,16 @@
 <div class="row bg-light">
-    <div class="col-5">
-        <h2 class="p-3">Burger Queen</h2>
+    <div class="col-md-5 col-12">
+        <h2 class="p-3"><i class="fas fa-utensils p-2"></i>Burger Queen</h2>
     </div>
-    <div class="col-7 text-right p-3">
+    <div class="col-md-7  col-12 text-right p-3">
         <div class="col-12 text-right">
             <span class="username"> {{authService.user.displayName || authService.user.email}}</span>
             <button type="button" class="btn btn-danger btn-sm m-1" (click)="logout()">logout</button>
         </div>
-        <button type="button" class="btn btn-outline-danger m-1" routerLink="/TakeOrder">Take a Order</button>
+        <button type="button" class="btn btn-outline-danger m-1" routerLink="/takeOrder">Take a Order</button>
         <button type="button" class="btn btn-outline-danger m-1" routerLink="/pending-orders">Pending
         orders</button>
-        <button type="button" class="btn btn-outline-danger m-1" routerLink="/orders">Salir</button>
+        <button type="button" class="btn btn-outline-danger m-1" routerLink="/orders">Orders</button>
 
     </div>
 </div>

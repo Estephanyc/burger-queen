@@ -32,7 +32,7 @@ const appRoutes: Routes = [ // ruta + componente
     component: LoginComponent
   },
   {
-    path: 'home/takeOrder',
+    path: 'takeOrder',
     component: MenuComponent
   },
   {
@@ -40,11 +40,11 @@ const appRoutes: Routes = [ // ruta + componente
     component: DashboardComponent
   },
   {
-    path: 'home/orders',
+    path: 'orders',
     component: OrdersComponent
   },
   {
-    path: 'home/pending-orders',
+    path: 'pending-orders',
     component: PendingOrdersComponent
   },
   {

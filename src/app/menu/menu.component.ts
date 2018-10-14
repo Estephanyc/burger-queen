@@ -14,20 +14,21 @@ export class MenuComponent implements OnInit {
   
   menu = "../../assets/data.json";
   client: FormGroup;
-  desayunos : any;
-  almuerzos : any;
-  pedidos: any = [];
+  breakfasts : any;
+  lunches : any;
+  orders: any = [];
   total : number = 0;
   pedidoCount : number = 0;
 
   constructor(private database: DatabaseService, private http: HttpClient, private formBuilder: FormBuilder) {
     this.clientForm();
     this.http.get(this.menu).subscribe(data =>{
-      this.desayunos = Object.values(data[0]).map(option => option)
-      this.desayunos = Object.values(this.desayunos[0])
-      this.almuerzos = Object.values(data[1]).map(option => option)
-      this.almuerzos = Object.values(this.almuerzos[0]).map(option => option)   
+      this.breakfasts = Object.values(data[0]).map(option => option)
+      this.breakfasts = Object.values(this.breakfasts[0])
+      this.lunches = Object.values(data[1]).map(option => option)
+      this.lunches = Object.values(this.lunches[0]).map(option => option)   
     });    
+    console.log(this.orders)
   }
 
   ngOnInit() {}
@@ -39,22 +40,22 @@ export class MenuComponent implements OnInit {
 
   addItem(item){
     item['pedidoId'] = this.pedidoCount++
-    this.pedidos.push(item)
+    this.orders.push(item)
     this.total+= item.precio
   }
 
   deleteItem(id, precio){ 
     this.total-= precio
-    this.pedidos = this.pedidos.filter(item => item.pedidoId !== id)
+    this.orders = this.orders.filter(item => item.pedidoId !== id)
   }
 
   addOrder(){
     let order = {
       "cliente": this.client.value.content,
-      "pedido" : this.pedidos
+      "pedido" : this.orders
     }
     this.database.addItem(order) 
-    this.pedidos = [];
+    this.orders = [];
     this.total = 0;
     this.client.reset()
   }

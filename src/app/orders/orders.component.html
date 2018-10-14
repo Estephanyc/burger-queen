@@ -1,10 +1,13 @@
-<div class="row">
-    <div class="col-md-4 mb-3 " *ngFor=" let item of orders | async ">
-        <div class="shadow-sm p-2 order ">
-            <h4>{{item.data.cliente}} </h4>
-            <p *ngFor="let item of item.data.pedido ">
-                - {{item.value}}
-            </p>
+<div class="col-12 col-md-10 shadow mt-5 bg-white mx-auto">
+    <app-header></app-header>
+    <div class="row mt-3">
+        <div class="col-md-4 mb-3 " *ngFor=" let item of orders | async ">
+            <div class="shadow-sm p-2 order ">
+                <h4>{{item.data.cliente}} </h4>
+                <p *ngFor="let item of item.data.pedido ">
+                    - {{item.value}}
+                </p>
+            </div>
         </div>
     </div>
 </div>

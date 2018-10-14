@@ -1,20 +1,20 @@
-<div class="col-12 col-md-10 shadow mt-5 bg-white mx-auto">
+<div class="col-12 col-md-10 shadow mt-5 bg-white mx-auto pb-4">
     <app-header></app-header>
     <div class="row">
-        <div class="col-6 mt-4 mx-auto">
+        <div class="col-md-6 col-12 mt-4 mx-auto">
             <mat-tab-group>
                 <mat-tab label="Desayunos">
-                    <app-option-menu *ngFor="let option of desayunos" [item]="option" (valueChange)='addItem($event)'></app-option-menu>
+                    <app-option-menu *ngFor="let option of breakfasts" [item]="option" (valueChange)='addItem($event)'></app-option-menu>
                 </mat-tab>
-                <mat-tab label="almuerzos">
-                    <app-option-menu *ngFor="let option of almuerzos" [item]="option" (valueChange)='addItem($event)'></app-option-menu>
+                <mat-tab label="Almuerzos">
+                    <app-option-menu *ngFor="let option of  lunches" [item]="option" (valueChange)='addItem($event)'></app-option-menu>
                 </mat-tab>
             </mat-tab-group>
         </div>
-        <div class="orders col-6 pt-4 ">
+        <div class="orders col-12 col-md-6 pt-4 ">
             <form [formGroup]="client">
-                <input #content formControlName="content" placeholder=" Cliente" />
-                <div *ngFor="let item of pedidos" class="row  pt-3">
+                <input #content formControlName="content" placeholder="Cliente*" />
+                <div *ngFor="let item of orders" class="row  pt-3">
                     <div class="col-5">
                         <span>{{item.value}}</span>
                     </div>
