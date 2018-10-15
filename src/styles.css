@@ -3,7 +3,8 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 body {
     font-family: 'Oxygen', sans-serif;
-    background-image: url(./assets/img/bg-login2.jpg) !important;
+    /* background-image: url(./assets/img/bg-login2.jpg) !important; */
+    background-image: linear-gradient(to right bottom, #da2a2a, #e33736, #eb4241, #f34d4d, #fb5858);
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;

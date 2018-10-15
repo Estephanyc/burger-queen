@@ -11,8 +11,5 @@ export class AppComponent {
   constructor(private authService: AuthService){
     console.log(this.authService.user)
   }
-  logout() {
-    this.authService.logout().then(() => {
-    })
-  }
+  
 }
