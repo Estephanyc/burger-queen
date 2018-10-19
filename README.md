@@ -22,9 +22,9 @@ Es una interfaz para restaurantes que permite a los cajeros tomar los pedidos en
 
 #### Ver/atender pedidos
 
-* Vista de pedidos pendientes
-* Marcar pedido como listo
-* Ver historial de pedidos
+* Vista de pedidos pendientes.
+* Marcar pedido como listo.
+* Ver historial de pedidos.
 
 ## Tecnologias
 Burger queen esta desarrollado con angular 6 y conectado con firebase. 
