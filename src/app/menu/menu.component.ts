@@ -4,6 +4,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule} from '@angular/material';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DatabaseService } from '../database.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-menu',
@@ -20,7 +21,7 @@ export class MenuComponent implements OnInit {
   total : number = 0;
   pedidoCount : number = 0;
 
-  constructor(private database: DatabaseService, private http: HttpClient, private formBuilder: FormBuilder) {
+  constructor(private database: DatabaseService, private http: HttpClient, private formBuilder: FormBuilder, private ApiService: ApiService) {
     this.clientForm();
     this.http.get(this.menu).subscribe(data =>{
       this.breakfasts = Object.values(data[0]).map(option => option)
