@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, public authService: AuthService) { }
 
   ngOnInit() {
   }
